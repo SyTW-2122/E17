@@ -4,9 +4,9 @@
   <img src="./Docs/Images/Logo.png"></img>
   <h1 style="font-weight: bold; font-family: Andale Mono">StackParts: Make it Real</h1>
   <h2 style="font-family: Andale Mono">La <span style="font-weight: bold; font-size: 25px">WEB</span> definitiva para descubrir y comprar los componentes del PC de tus <span style="font-weight: bold; font-size: 30px">sueños.</span></h2>
+  <img src="./Docs/Images/PC.gif"></img>
 </div>
 
-![](https://www.kabum.com.br/conteudo/descricao/96182/img/corsaircomanderpro_2.gif)
 
 # Participantes
 
