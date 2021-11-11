@@ -1,16 +1,13 @@
 <template>
   <Header />
-  <HelloWorld msg="StackParts: Make it Real!"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     Header
   }
 }
