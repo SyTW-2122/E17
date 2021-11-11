@@ -68,24 +68,30 @@ export default {
   height: 85px;
   display: flex;
   width: auto;
-  /* border: 2px solid yellow; */
 }
+
 .noDisplay {
   display: none;
 }
 
 .button {
   width: 165px;
-  color:white;
+  color: white;
   font-size: 25px;
   margin: auto 5px;
   padding: 5px;
   border-radius: 10px;
   border: 2px solid black;
 }
+
+.fa {
+  font-size: 20px;
+}
+
 .gradient-a {
   background: linear-gradient(90deg,#30D0FF, #573CFD);
 }
+
 .gradient-b {
   background: linear-gradient(90deg,#573CFD, #b63ecbbb);
 }
