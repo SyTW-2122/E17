@@ -1,14 +1,17 @@
 <template>
-  <Header />
+  <CHeaderComplex />
+  <CBodyHome />
 </template>
 
 <script>
-import Header from './components/Header.vue'
+import CHeaderComplex from './components/HeaderComplex.vue'
+import CBodyHome from './components/BodyHome.vue'
 
 export default {
   name: 'App',
   components: {
-    Header
+    CHeaderComplex,
+    CBodyHome
   }
 }
 </script>
