@@ -8,11 +8,15 @@
         <span class="rainbow">Make it Real</span>
       </div>
     </div>
-    <div class="buttons">
-      <div id="login" class="button gradient-a noDisplay">Iniciar Sesion</div>
-      <div id="micarrito" class="button gradient-a "> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Mi Carrito</div>
-      <div id="register" class="button gradient-b noDisplay">Registrarse</div>
-      <div id="perfil" class="button gradient-b "> <i class="fa fa-user" aria-hidden="true"></i> Mi Perfil</div>
+    <div>
+      <div v-if="true" class="buttons">
+        <div class="button gradient-a">Iniciar Sesion</div>
+        <div class="button gradient-b">Registrarse</div>
+      </div>
+      <div v-else class="buttons">
+        <div class="button gradient-a"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Mi Carrito</div>
+        <div class="button gradient-b"> <i class="fa fa-user" aria-hidden="true"></i> Mi Perfil</div>
+      </div>
     </div>
   </div>
 </template>
@@ -70,12 +74,8 @@ export default {
   width: auto;
 }
 
-.noDisplay {
-  display: none;
-}
-
 .button {
-  width: 165px;
+  width: 180px;
   color: white;
   font-size: 25px;
   margin: auto 5px;
