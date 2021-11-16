@@ -9,15 +9,28 @@
       </div>
     </div>
     <hr>
-    <div class="productos">
+    <div class="products">
       <!-- Poner el For para meter cada producto -->
+      <CProduct />
+      <CProduct />
+      <CProduct />
+      <CProduct />
+      <CProduct />
+      <CProduct />
+      <CProduct />
+      <CProduct />
     </div>
   </div>
 </template>
 
 <script>
+import CProduct from './Product.vue'
+
 export default {
-  name: 'BodyHome'
+  name: 'BodyHome',
+  components: {
+    CProduct
+  }
 }
 </script>
 
@@ -55,5 +68,14 @@ export default {
 
   .gradiant-b {
     background: radial-gradient(#C373D7 15%, #8721ED);
+  }
+
+  .products {
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  /* border: solid 2px wheat; */
   }
 </style>
