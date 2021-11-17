@@ -1,5 +1,4 @@
 <template>
-  <CHeaderComplex />
   <div class="container">
     <div class="buttons">
       <div class="button gradiant-a">
@@ -19,7 +18,6 @@
 </template>
 
 <script>
-  import CHeaderComplex from './HeaderComplex.vue'
   import CProduct from './Product.vue'
 
   import { mapGetters, mapActions } from "vuex";
@@ -27,7 +25,6 @@
   export default {
     name: 'BodyHome',
     components: {
-      CHeaderComplex,
       CProduct
     },
     methods: {

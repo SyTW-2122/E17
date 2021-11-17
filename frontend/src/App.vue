@@ -1,14 +1,17 @@
 <template>
-  <CBodyHome />
+  <!-- <PHome /> -->
+  <PCategories />
 </template>
 
 <script>
-  import CBodyHome from './components/BodyHome.vue'
+  // import PHome from './pages/Home.vue'
+  import PCategories from './pages/Categories.vue'
 
   export default {
     name: "App",
     components: {
-      CBodyHome
+      // PHome
+      PCategories
     }
   }
 </script>
