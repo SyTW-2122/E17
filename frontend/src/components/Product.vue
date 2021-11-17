@@ -1,16 +1,16 @@
 <template>
   <div class="product">
     <div class="nameproduct">
-      Nvidia GeForce GTX 1660
+      {{arg.name}}
     </div>
     <div class="imgproduct">
-      <img src='https://i.redd.it/yoh6g0svph171.png'>
+      <img :src="arg.imgURL">
     </div>
     <div class="priceproduct">
       <div class="price">
-        1145.12€
+        {{arg.price}}€
       </div>
-      <div class="discount">
+      <div v-if="arg.discount" class="discount">
         <i class="fas fa-bullhorn"></i>
       </div>
     </div>
@@ -19,7 +19,18 @@
 
 <script >
 export default {
-  name: 'Product'
+  name: 'Product',
+  props: {
+    arg: {
+      category: String,
+      name: String,
+      price: Number,
+      imgURL: String,
+      discount: Boolean,
+      espec: [String],
+      id: String
+    }
+  }
 }
 </script>
 
@@ -58,8 +69,8 @@ export default {
   }
 
   .priceproduct {
-    width: 58%;
-    margin-left: 38%;
+    width: 55%;
+    margin-left: 41%;
     margin-bottom: 5px;
     display: flex;
     height: 10%;

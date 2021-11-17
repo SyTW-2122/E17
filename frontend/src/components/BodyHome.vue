@@ -11,14 +11,9 @@
     <hr>
     <div class="products">
       <!-- Poner el For para meter cada producto -->
-      <CProduct />
-      <CProduct />
-      <CProduct />
-      <CProduct />
-      <CProduct />
-      <CProduct />
-      <CProduct />
-      <CProduct />
+      <div :key="i" v-for="i in 5">
+        <CProduct :arg="product"/>
+      </div>
     </div>
   </div>
 </template>
@@ -30,6 +25,19 @@ export default {
   name: 'BodyHome',
   components: {
     CProduct
+  },
+  data() {
+    return {
+      product: {
+        category: "ARROZ",
+        name: "HOLA Nombre",
+        price: 2351,
+        imgURL: "https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/5a7825b45cafe8a3027ea9d7/gas-radon_0.jpg",
+        discount: true,
+        espec: ["hola", "que", "tal", "Xd"],
+        id: "7y8q72340q7h827"
+      }
+    }
   }
 }
 </script>
