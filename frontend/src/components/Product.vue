@@ -40,13 +40,9 @@ export default {
     margin: 10px;
     width: 530px;
     height: 300px;
-    
     background: linear-gradient(90deg, #3CD1FD, #2C2EFA, #E92EFB);
     border-radius: 20px;
-
     color: white;
-    
-    /* border: solid 2px yellow; */
   }
 
   .nameproduct {
@@ -79,6 +75,7 @@ export default {
 
   .price {
     font-size: 30px;
+    font-weight: bold;
   }
 
   .discount {

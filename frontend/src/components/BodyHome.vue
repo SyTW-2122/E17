@@ -1,6 +1,7 @@
 <template>
-  <div class="container">     <!--  Contiene Todo -->
-    <div class="buttons">     <!--  Contiene Todo -->
+  <CHeaderComplex />
+  <div class="container">
+    <div class="buttons">
       <div class="button gradiant-a">
         Todas las Categorias
       </div>
@@ -10,8 +11,7 @@
     </div>
     <hr>
     <div class="products">
-      <!-- Poner el For para meter cada producto -->
-      <div :key="i" v-for="i in 5">
+      <div :key="product.id" v-for="product in randomProducts">
         <CProduct :arg="product"/>
       </div>
     </div>
@@ -19,39 +19,35 @@
 </template>
 
 <script>
-import CProduct from './Product.vue'
+  import CHeaderComplex from './HeaderComplex.vue'
+  import CProduct from './Product.vue'
 
-export default {
-  name: 'BodyHome',
-  components: {
-    CProduct
-  },
-  data() {
-    return {
-      product: {
-        category: "ARROZ",
-        name: "HOLA Nombre",
-        price: 2351,
-        imgURL: "https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/5a7825b45cafe8a3027ea9d7/gas-radon_0.jpg",
-        discount: true,
-        espec: ["hola", "que", "tal", "Xd"],
-        id: "7y8q72340q7h827"
-      }
+  import { mapGetters, mapActions } from "vuex";
+
+  export default {
+    name: 'BodyHome',
+    components: {
+      CHeaderComplex,
+      CProduct
+    },
+    methods: {
+      ...mapActions(["getRandomProducts"])
+    },
+    computed: {
+      ...mapGetters(["randomProducts"])
+    },
+    created() {
+      this.getRandomProducts();
     }
   }
-}
 </script>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
   .container {
     margin-top: 100px !important;
-    font-family: 'Montserrat', sans-serif;
     width: 90%;
     margin: auto;
   }
-
 
   .buttons {
     display: flex;
@@ -79,11 +75,9 @@ export default {
   }
 
   .products {
-  margin: 40px auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  /* border: solid 2px wheat; */
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 </style>
