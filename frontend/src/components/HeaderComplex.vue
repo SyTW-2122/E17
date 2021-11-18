@@ -1,21 +1,21 @@
 <template>
   <div class="container">
-    <div class="bigLogo">
+    <router-link to="/" class="bigLogo">
       <img class="imgLogo" src="../assets/Logo.png" alt="Logo StackParts">
       <div class="textLogo">
         <span class="bold">StackParts</span>
         <br>
         <span class="rainbow">Make it Real</span>
       </div>
-    </div>
+    </router-link>
     <div>
-      <div v-if="true" class="buttons">
-        <div class="button gradient-a">Iniciar Sesion</div>
-        <div class="button gradient-b">Registrarse</div>
+      <div v-if="false" class="buttons">
+        <router-link to="/login" class="button gradient-a">Iniciar Sesion</router-link>
+        <router-link to="/register" class="button gradient-b">Registrarse</router-link>
       </div>
       <div v-else class="buttons">
-        <div class="button gradient-a"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Mi Carrito</div>
-        <div class="button gradient-b"> <i class="fa fa-user" aria-hidden="true"></i> Mi Perfil</div>
+        <router-link to="/cart" class="button gradient-a"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Mi Carrito</router-link>
+        <router-link to="/profile" class="button gradient-b"> <i class="fa fa-user" aria-hidden="true"></i> Mi Perfil</router-link>
       </div>
     </div>
   </div>
@@ -41,6 +41,8 @@
     height: 85px;
     display: flex;
     margin-top: 6px;
+
+    text-decoration: none;
 
     /* border: 2px solid aqua; */
   }
@@ -80,6 +82,8 @@
     padding: 5px;
     border-radius: 10px;
     border: 2px solid black;
+
+    text-decoration: none;
   }
 
   .fa {

@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <div class="buttons">
-      <div class="button gradiant-a">
+      <router-link to="/categories" class="button gradiant-a">
         Todas las Categorias
-      </div>
-      <div class="button gradiant-b">
+      </router-link>
+      <router-link to="/promociones" class="button gradiant-b">
         Ofertas del Dia
-      </div>
+      </router-link>
     </div>
     <hr>
     <div class="products">
@@ -61,6 +61,7 @@
     border-radius: 30px;
     border: 2px solid black;
     color: white;
+    text-decoration: none;
   }
 
   .gradiant-a {

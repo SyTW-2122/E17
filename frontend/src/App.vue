@@ -1,18 +1,21 @@
 <template>
   <!-- <PHome /> -->
-  <PCategories />
+
+  <router-view />
+
+  <!-- <PCategories /> -->
 </template>
 
 <script>
   // import PHome from './pages/Home.vue'
-  import PCategories from './pages/Categories.vue'
+  // import PCategories from './pages/Categories.vue'
 
   export default {
     name: "App",
-    components: {
+    // components: {
       // PHome
-      PCategories
-    }
+      // PCategories
+    // }
   }
 </script>
 
