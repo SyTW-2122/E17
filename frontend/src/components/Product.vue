@@ -43,7 +43,8 @@ export default {
     width: 530px;
     height: 300px;
     background: linear-gradient(90deg, #3CD1FD, #2C2EFA, #E92EFB);
-    border-radius: 20px; 
+    border-radius: 20px;
+    box-shadow:0 5px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
   }
 
   .no_link {

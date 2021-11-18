@@ -1,21 +1,16 @@
 <template>
-  <!-- <PHome /> -->
-
   <router-view />
-
-  <!-- <PCategories /> -->
+  <CFooter />
 </template>
 
 <script>
-  // import PHome from './pages/Home.vue'
-  // import PCategories from './pages/Categories.vue'
+  import CFooter from './components/Footer.vue'
 
   export default {
     name: "App",
-    // components: {
-      // PHome
-      // PCategories
-    // }
+    components: {
+      CFooter
+    }
   }
 </script>
 
