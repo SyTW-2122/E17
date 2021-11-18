@@ -1,19 +1,21 @@
 <template>
   <div class="product">
-    <div class="nameproduct">
-      {{arg.name}}
-    </div>
-    <div class="imgproduct">
-      <img :src="arg.imgURL">
-    </div>
-    <div class="priceproduct">
-      <div class="price">
-        {{arg.price}}€
+    <router-link :to="`/details/${arg.id}`" class="no_link">
+      <div class="nameproduct">
+        {{arg.name}}
       </div>
-      <div v-if="arg.discount" class="discount">
-        <i class="fas fa-bullhorn"></i>
+      <div class="imgproduct">
+        <img :src="arg.imgURL">
       </div>
-    </div>
+      <div class="priceproduct">
+        <div class="price">
+          {{arg.price}}€
+        </div>
+        <div v-if="arg.discount" class="discount">
+          <i class="fas fa-bullhorn"></i>
+        </div>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -41,7 +43,11 @@ export default {
     width: 530px;
     height: 300px;
     background: linear-gradient(90deg, #3CD1FD, #2C2EFA, #E92EFB);
-    border-radius: 20px;
+    border-radius: 20px; 
+  }
+
+  .no_link {
+    text-decoration: none;
     color: white;
   }
 

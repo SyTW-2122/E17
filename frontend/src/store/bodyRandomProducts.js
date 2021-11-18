@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:4000/product";
+const url = "http://tecnored.xyz:4000/product";
 
 const state = {
   randomProducts: []

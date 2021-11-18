@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <div class="bigLogo">
+    <router-link to="/" class="bigLogo">
       <img class="imgLogo" src="../assets/Logo.png" alt="Logo StackParts">
       <div class="textLogo">
         <span class="bold">StackParts</span>
         <br>
         <span class="rainbow">Make it Real</span>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -31,6 +31,8 @@
     height: 85px;
     display: flex;
     margin-top: 6px;
+
+    text-decoration: none;
 
     /* border: 2px solid aqua; */
   }

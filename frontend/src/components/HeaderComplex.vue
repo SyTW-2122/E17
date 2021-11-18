@@ -9,7 +9,7 @@
       </div>
     </router-link>
     <div>
-      <div v-if="false" class="buttons">
+      <div v-if="true" class="buttons">
         <router-link to="/login" class="button gradient-a">Iniciar Sesion</router-link>
         <router-link to="/register" class="button gradient-b">Registrarse</router-link>
       </div>

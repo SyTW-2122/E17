@@ -1,11 +1,13 @@
 <template>
   <div class="category">
-    <div class="namecategory">
-      {{arg.name}}
-    </div>
-    <div class="imgcategory">
-      <img :src="arg.imgURL">
-    </div>
+    <router-link :to="`/category/${arg.name}`" class="no_link">
+      <div class="namecategory">
+        {{arg.name}}
+      </div>
+      <div class="imgcategory">
+        <img :src="arg.imgURL">
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -15,7 +17,8 @@ export default {
   props: {
     arg: {
       name: String,
-      imgURL: String
+      imgURL: String,
+      id: String
     }
   }
 }
@@ -29,6 +32,10 @@ export default {
     height: 300px;
     background: linear-gradient(90deg, #3CD1FD, #2C2EFA, #E92EFB);
     border-radius: 20px;
+  }
+
+  .no_link {
+    text-decoration: none;
     color: white;
   }
 
