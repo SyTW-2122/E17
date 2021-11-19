@@ -7,6 +7,9 @@ import config from '../config';
 export const signUp = async (request, response) => {
   const content = request.body
 
+  const oldUser = await User.find({email: content.email});
+  if(oldUser) return response.status(409).json({message: "Correo ya en uso"})
+
   const newUser = new User({
     email: content.email,
     password: await User.encryptPassword(content.password),
@@ -31,6 +34,9 @@ export const signUp = async (request, response) => {
       expiresIn: 86400 // 24 horas
     });
     response.status(201).json({token})
+  })
+  .catch (err => {
+    response.status(400).json({message: "Error"});
   });
 }
 
