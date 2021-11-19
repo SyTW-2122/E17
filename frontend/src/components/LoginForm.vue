@@ -24,6 +24,11 @@
       </div>
     </form>
 
+    <!-- Manejo de errores -->
+    <div id="errores" class="erroes">
+    </div>
+    <!-- Manejo de errores -->
+
     <div class="separator">
       <div class="line">
         ________________________
@@ -150,5 +155,9 @@
       border: solid 0px black;
     }
 
-    
+  .erroes {
+    display: none;
+    margin-top: 30px;
+    color:red;
+  }    
 </style>
