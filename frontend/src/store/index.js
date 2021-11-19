@@ -6,6 +6,7 @@ import productDetails from './productDetails.js';
 import bodyPromoProducts from './bodyPromoProducts.js';
 import bodyCategoryProducts from './bodyCategoryProducts.js';
 import headerInfoUser from './headerInfoUser';
+import authLogin from './authLogin';
 
 export default createStore({
   modules: {
@@ -14,6 +15,7 @@ export default createStore({
     productDetails,
     bodyPromoProducts,
     bodyCategoryProducts,
-    headerInfoUser
+    headerInfoUser,
+    authLogin
   }
 });
