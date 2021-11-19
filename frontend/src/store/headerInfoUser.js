@@ -22,13 +22,13 @@ const actions = {
       const data = {
         token: localStorage.getItem("token")
       }
-      const response = await axios.post(url,data)
-      if(response.status === 200){
+      try {
+        const response = await axios.post(url,data)
         commit("setToken", localStorage.getItem("token"));
         commit("setDataUser", response.data);
-      }
-      else
-      commit("setToken", null);
+      } catch {
+        commit("setToken", null);
+      }      
     } 
     else {
       commit("setToken", null);
