@@ -7,7 +7,7 @@ import config from '../config';
 export const signUp = async (request, response) => {
   const content = request.body
 
-  const oldUser = await User.find({email: content.email});
+  const oldUser = await User.findOne({"email": content.email});
   if(oldUser) return response.status(409).json({message: "Correo ya en uso"})
 
   const newUser = new User({

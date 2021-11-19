@@ -60,7 +60,7 @@
       <div style="margin-top: 30px" class="group">
         <div class="acceptPolitics">
           <div>
-            <input style="margin: 0px" type="checkbox">He leído y acepto las políticas de privacidad.
+            <input style="margin: 0px" type="checkbox" required>He leído y acepto las políticas de privacidad.
           </div>
           <div>
             <input style="margin: 0px 0px 0px 2px" type="checkbox">Recibir documentos esclusivos, novedades y tendencias por email.
@@ -71,6 +71,13 @@
         </div>      
       </div>
     </form>
+
+    <!-- Manejo de Errores -->
+
+    <div id="errores" class="erroes">
+    </div>
+
+    <!-- Manejo de Errores -->
     
     <div class="separator">
       <div class="line">
@@ -192,7 +199,7 @@
       margin-left: -50px;
     }
 
-  /* Register */
+  /* Login */
     .no_link {
       text-decoration: none;
       color: white;
@@ -212,4 +219,10 @@
       border-radius: 10px;
       border: solid 0px black;
     }
+
+  .erroes {
+    display: none;
+    margin-top: 30px;
+    color:red;
+  }
 </style>
