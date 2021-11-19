@@ -7,7 +7,8 @@ import bodyPromoProducts from './bodyPromoProducts.js';
 import bodyCategoryProducts from './bodyCategoryProducts.js';
 import headerInfoUser from './headerInfoUser';
 import authLogin from './authLogin';
-import authRegister from './authRegister'
+import authRegister from './authRegister';
+import Cart from './Cart'
 
 export default createStore({
   modules: {
@@ -18,6 +19,7 @@ export default createStore({
     bodyCategoryProducts,
     headerInfoUser,
     authLogin,
-    authRegister
+    authRegister,
+    Cart
   }
 });
