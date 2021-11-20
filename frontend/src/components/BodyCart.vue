@@ -55,7 +55,7 @@
     width: 95%;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .textHeaderCart {
@@ -70,8 +70,8 @@
 
   .cartEmpty{
     font-size: 50px;
-    margin-top: 35px;
-    margin-left: 400px
+    margin-top: 46px;
+    margin-right: 30px;
   }
 
   .leftPart {
@@ -116,7 +116,7 @@
   .totalP {
     box-shadow:0 5px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
     border-radius: 5px;
-    width: 100px;
+    width: 150px;
     margin: 20px auto;
     font-size: 20px;
   }
