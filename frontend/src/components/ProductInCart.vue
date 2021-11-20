@@ -1,5 +1,5 @@
 <template>
-  <div class="container2">
+  <div v-if="arg" class="container2">
     <img class="productImg" :src='`${arg.imgURL}`'>
     <div class="productName">
       {{arg.name}}
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapMutations } from 'vuex'
 
   export default {
     name: "ProductInCart",
@@ -34,7 +34,8 @@
       }
     },
     methods: {
-      ...mapActions(["addProductInCart","removeProductInCart"])
+      // ...mapActions(["addProductInCart","removeProductInCart"]),
+      ...mapMutations(["addProductInCart","removeProductInCart"])
     }
   }
 </script>

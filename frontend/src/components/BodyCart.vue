@@ -8,7 +8,7 @@
           <span>Total</span>
         </div>
         <div class="ProductInCart">
-          <div :key="product.id" v-for="product in ProductsInCart">
+          <div :key="product" v-for="product in ProductsInCart">
             <CProductInCart :arg="product"/>
           </div>
         </div>

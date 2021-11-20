@@ -32,7 +32,7 @@
 </template>
 
 <script >
-  import { mapActions, mapGetters } from "vuex";
+  import { mapActions, mapGetters, mapMutations } from "vuex";
 
   export default {
     name: 'ProductDetails',
@@ -40,7 +40,8 @@
       ...mapGetters(["details","checkToken"]),
     },
     methods: {
-      ...mapActions(["getDetails","addProductInCart"]),
+      ...mapActions(["getDetails"]),
+      ...mapMutations(["addProductInCart"])
     },
     mounted() {
       this.getDetails(this.$route.params.id);
