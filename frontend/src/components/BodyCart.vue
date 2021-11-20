@@ -15,7 +15,7 @@
       </div>
       <div class="leftDown">
         <input class="gradient-a" type="button" value="Vaciar Carrito" v-on:click="VaciarCarrito"/>
-        <input class="gradient-b" type="button" value="Seguir Comprando" onclick='window.location.href="/categories"'/>
+        <router-link to="/categories"><input class="gradient-b" type="button" value="Seguir Comprando"/></router-link>
       </div>
     </div>
     <div v-else class="cartEmpty">
