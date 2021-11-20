@@ -18,9 +18,9 @@
       </div>
       <div class="ajustarCarrito">
         <!-- Añadir al carrito -->
-        <div v-if="checkToken" v-on:click="addProductInCart" class="addCart">
+        <button v-if="checkToken" v-on:click="addProductInCart(details)" class="addCart">
           Añadir al Carrito
-        </div>
+        </button>
         <!-- Sin Iniciar Sesion -->
         <div v-else style="color: red">
           <i class="fas fa-exclamation-triangle"></i>
@@ -40,7 +40,7 @@
       ...mapGetters(["details","checkToken"]),
     },
     methods: {
-      ...mapActions(["getDetails","addToCart"]),
+      ...mapActions(["getDetails","addProductInCart"]),
     },
     mounted() {
       this.getDetails(this.$route.params.id);
@@ -81,6 +81,11 @@
     padding: 10px;
   }
 
+  .especs {
+    width: 650px;
+    margin: auto;
+  }
+
   .listEspecs {
     text-align: left;
   }
@@ -95,9 +100,14 @@
     font-weight: bolder;
     font-size: 50px !important;
     color: #772ffb;
-    width: 70%;
+    width: 500px;
     margin: auto;
-    padding: 10px;
+    padding: 11px;
+  }
+
+  .addCart:hover {
+    background-color: rgb(226, 226, 226);
+    color: #762ffbb7;
   }
 
   .gradient-border {
