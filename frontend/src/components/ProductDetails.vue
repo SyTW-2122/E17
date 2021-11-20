@@ -59,6 +59,7 @@
     display: flex;
     justify-content: space-around;
   }
+  
   .group {
     margin-top: 50px;
     font-size: 25px;

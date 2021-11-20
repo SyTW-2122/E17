@@ -34,7 +34,6 @@
       }
     },
     methods: {
-      // ...mapActions(["addProductInCart","removeProductInCart"]),
       ...mapMutations(["addProductInCart","removeProductInCart"])
     }
   }
