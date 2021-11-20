@@ -41,10 +41,10 @@
       CProductInCart
     },
     methods:{
-      ...mapActions(["RealizarCompra","VaciarCarrito"]);
+      ...mapActions(["RealizarCompra","VaciarCarrito"])
     },
     computed: {
-      ...mapGetters(["ProductsInCart","AllPriceInCart"]);
+      ...mapGetters(["ProductsInCart","AllPriceInCart"])
     }
   }
 </script>
