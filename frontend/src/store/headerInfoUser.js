@@ -3,7 +3,7 @@ import axios from "axios";
 const url = "http://tecnored.xyz:4000/auth/profile";
 
 const state = {
-  token: String,
+  token: null,
   dataUser: {}
 }
 
@@ -16,6 +16,7 @@ const actions = {
   Logout({ commit }) {
     localStorage.removeItem("token");
     commit("setToken", null);
+    window.location.href="/"
   },
   async readToken({ commit }) {
     if (localStorage.getItem("token")) {
@@ -27,6 +28,7 @@ const actions = {
         commit("setToken", localStorage.getItem("token"));
         commit("setDataUser", response.data);
       } catch {
+        localStorage.removeItem("token");
         commit("setToken", null);
       }      
     } 

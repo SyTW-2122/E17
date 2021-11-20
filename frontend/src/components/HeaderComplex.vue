@@ -60,12 +60,10 @@
     methods: {
       toggleRightMenu: function() {
         if(!this.sidebar) {
-          console.log("Abrir")
           document.getElementById("rightMenu").style.display = "flex";
           this.sidebar = true
         }
         else {
-          console.log("Cerrar")
           document.getElementById("rightMenu").style.display = "none";
           this.sidebar = false
         }
@@ -76,7 +74,6 @@
         var l = Math.floor(Math.random() * 100);
         if (l <= 50) l = 60;
         var mycolor = `hsl(${h}deg, ${s}%, ${l}%)`;
-        console.log(mycolor);
         return mycolor;
       },
       ...mapActions(["Logout","readToken"])
