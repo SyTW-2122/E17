@@ -20,7 +20,7 @@
         </div>
       </div>
       <div>
-        <button class="signin gradient" type="submit"> Iniciar Sesion </button>
+        <button class="signin gradient" type="submit" style="cursor: pointer;"> Iniciar Sesion </button>
       </div>
     </form>
 

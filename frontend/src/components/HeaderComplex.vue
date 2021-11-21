@@ -1,7 +1,7 @@
 <template>
   <div class="shadow animation sidebar" id="rightMenu">
     <div class="sidemenu">
-      <div v-on:click="toggleRightMenu()" class="closeMenu">
+      <div v-on:click="toggleRightMenu()" class="closeMenu" style="cursor: pointer;">
         <i class="fas fa-window-close"></i>
       </div>
       <div class="imgUser">
@@ -20,7 +20,7 @@
       <div class="emailUser profileUser">
         {{dataUser.email}}
       </div>
-      <button v-on:click="Logout(),toggleRightMenu()" class="cerrarSesion">
+      <button v-on:click="Logout(),toggleRightMenu()" class="cerrarSesion" style="cursor: pointer;">
         <span>Cerrar Sesion</span>
         <i class="fas fa-sign-out-alt"></i>
       </button>
@@ -38,7 +38,7 @@
     <div>
       <div v-if="checkToken" class="buttons">
         <router-link to="/cart" class="button gradient-a"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Mi Carrito</router-link>
-        <button v-on:click="toggleRightMenu()" class="button gradient-b"> <i class="fa fa-user" aria-hidden="true"></i> Mi Perfil</button>
+        <button v-on:click="toggleRightMenu()" class="button gradient-b" style="cursor: pointer;"> <i class="fa fa-user" aria-hidden="true"></i> Mi Perfil</button>
       </div>
       <div v-else class="buttons">
         <router-link to="/login" class="button gradient-a">Iniciar Sesion</router-link>

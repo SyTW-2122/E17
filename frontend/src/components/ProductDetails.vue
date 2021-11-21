@@ -18,7 +18,7 @@
       </div>
       <div class="ajustarCarrito">
         <!-- Añadir al carrito -->
-        <button v-if="checkToken" v-on:click="addProductInCart(details)" class="addCart">
+        <button v-if="checkToken" v-on:click="addProductInCart(details),alertAddCart()" class="addCart" style="cursor: pointer;">
           Añadir al Carrito
         </button>
         <!-- Sin Iniciar Sesion -->
@@ -33,6 +33,7 @@
 
 <script >
   import { mapActions, mapGetters, mapMutations } from "vuex";
+  import swal from 'sweetalert2'
 
   export default {
     name: 'ProductDetails',
@@ -41,7 +42,16 @@
     },
     methods: {
       ...mapActions(["getDetails"]),
-      ...mapMutations(["addProductInCart"])
+      ...mapMutations(["addProductInCart"]),
+      alertAddCart: function(){
+        swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          text: 'Producto añadido al carrito',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
     },
     mounted() {
       this.getDetails(this.$route.params.id);
@@ -108,7 +118,7 @@
   }
 
   .addCart:hover {
-    background-color: rgb(226, 226, 226);
+    background-color: rgb(250, 248, 248);
     color: #762ffbb7;
   }
 

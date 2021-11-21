@@ -14,13 +14,14 @@ const actions = {
   RealizarCompra(){
     swal.fire({
       title: "Enhorabuena",
-      html: 'Su pedido se ha realizado con éxito <br>Muchas gracias por su compra',
+      html: 'Su pedido se ha realizado con éxito. <br>Muchas gracias por su compra!',
       imageUrl: 'https://tecnored.xyz/SyTW/cartimg/cartfull.png',
       imageWidth: 150,
       imageHeight: 150,
       imageAlt: 'Carrito Lleno',
+      confirmButtonText: 'Vale'
     }).then((result) => {
-      if (result.isConfirmed || result.isDismissed) {
+      if (result.isConfirmed) {
         window.location.href="/"
       }
     });

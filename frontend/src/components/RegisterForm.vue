@@ -60,14 +60,14 @@
       <div style="margin-top: 30px" class="group">
         <div class="acceptPolitics">
           <div>
-            <input style="margin: 0px" type="checkbox" required>He leído y acepto las políticas de privacidad.
+            <input style="margin: 0px; cursor: pointer;" type="checkbox" required>He leído y acepto las políticas de privacidad.
           </div>
           <div>
-            <input style="margin: 0px 0px 0px 2px" type="checkbox">Recibir documentos esclusivos, novedades y tendencias por email.
+            <input style="margin: 0px 0px 0px 2px; cursor: pointer;" type="checkbox">Recibir documentos esclusivos, novedades y tendencias por email.
           </div>
         </div>
         <div>
-          <button class="signup gradient" type="submit"> Registrarse </button>
+          <button class="signup gradient" type="submit"  style="cursor: pointer;"> Registrarse </button>
         </div>      
       </div>
     </form>

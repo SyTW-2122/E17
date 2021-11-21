@@ -9,7 +9,12 @@
       </div>
       <div class="priceproduct">
         <div class="price">
-          {{arg.price}}€
+          <div v-if="arg.discount" style="color: #f9a1a1">
+            {{arg.price}}€
+          </div>
+          <div v-else>
+            {{arg.price}}€
+          </div>
         </div>
         <div v-if="arg.discount" class="discount">
           <i class="fas fa-bullhorn"></i>
@@ -88,8 +93,8 @@ export default {
   .discount {
     transform: rotate(335deg);
     font-size: 30px;
-    background: linear-gradient(200deg, rgba(29,57,251,1) 30%, rgba(52,222,252,1) 100%);
-    /* background: linear-gradient(200deg, red,rgb(253, 195, 4), rgb(251, 244, 145)); */
+    /* background: linear-gradient(200deg, rgba(29,57,251,1) 30%, rgba(52,222,252,1) 100%); */
+    background: linear-gradient(250deg, red,rgb(253, 195, 4), rgb(251, 244, 145));
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
   }

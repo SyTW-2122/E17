@@ -25,4 +25,12 @@
   color: #2c3e50;
   margin-top: 60px;
 }
+
+  .swal2-html-container {
+    font-size: 23px;
+  }
+
+  .swal2-popup {
+    font-family: 'Montserrat', sans-serif !important;
+  }
 </style>
