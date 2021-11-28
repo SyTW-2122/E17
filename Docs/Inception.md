@@ -15,4 +15,4 @@ En esta practica se va a hacer uso de la herramienta Pivotal Tracker, la cual co
 
 Las 4 tareas estan asignadas a todos los miembros del grupo.
 
-![](./Images/Tareas.png)
+![](./Images/Tareas1.png)
