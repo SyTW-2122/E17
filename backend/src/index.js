@@ -1,6 +1,8 @@
 import './database';
 import app from './app';
 
-app.listen(4000);
+const server = app.listen(4000, () => {
+  console.log('Server listen on port', 4000);
+});
 
-console.log('Server listen on port', 4000);
+module.exports = {app, server}

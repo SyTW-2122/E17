@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --exec ./node_modules/.bin/babel-node ./src/index.js",
     "start": "cross-env NODE_ENV=production babel src --out-dir build && node build/index.js",
-    "test": "cross-env NODE_ENV=test jest --verbose"
+    "test": "cross-env NODE_ENV=test jest --verbose --silent",
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Yeixon",
   "license": "ISC",
@@ -29,7 +30,8 @@
     "@babel/preset-env": "^7.16.0",
     "jest": "^27.4.3",
     "nodemon": "^2.0.15",
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "supertest": "^6.1.6"
   },
   "jest": {
     "testEnvironment": "node"
