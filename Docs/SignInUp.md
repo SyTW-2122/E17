@@ -10,7 +10,7 @@ En esta iteracion vamos a crear los modelos del inicio de sesion y registro, asi
 
 ## MockUps [Figma]
 
-* [Inicio de Sesion (Link)]("https://www.figma.com/proto/vAUNbIljtyyt0SGJGU0g5f/Stack-Parts-Prototype?node-id=22%3A283&scaling=scale-down&page-id=0%3A1&starting-point-node-id=36%3A197")
+* [Inicio de Sesion (Link)](https://www.figma.com/proto/vAUNbIljtyyt0SGJGU0g5f/Stack-Parts-Prototype?node-id=22%3A283&scaling=scale-down&page-id=0%3A1&starting-point-node-id=36%3A197)
 
 ![](./Images/Mockups/InicioSesion.png)
 
