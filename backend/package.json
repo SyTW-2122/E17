@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec ./node_modules/.bin/babel-node ./src/index.js",
-    "build": "babel src --out-dir build",
-    "start": "node build/index.js"
+    "dev": "cross-env NODE_ENV=development nodemon --exec ./node_modules/.bin/babel-node ./src/index.js",
+    "start": "cross-env NODE_ENV=production babel src --out-dir build && node build/index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose"
   },
   "author": "Yeixon",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
@@ -26,7 +27,11 @@
     "@babel/node": "^7.16.0",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.16.0",
+    "jest": "^27.4.3",
     "nodemon": "^2.0.15",
     "regenerator-runtime": "^0.13.9"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
