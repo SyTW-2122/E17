@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --exec ./node_modules/.bin/babel-node ./src/index.js",
     "start": "cross-env NODE_ENV=production babel src --out-dir build && node build/index.js",
-    "test": "cross-env NODE_ENV=test jest --verbose --silent",
+    "test": "cross-env NODE_ENV=test jest --verbose --silent ./tests/product.test.js",
     "test:watch": "npm run test -- --watch",
     "alltest": "npm run test  -- ./tests/auth.test.js && npm run test  -- ./tests/category.test.js && npm run test  -- ./tests/product.test.js"
   },

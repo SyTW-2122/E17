@@ -12,11 +12,11 @@ let tokenAdmin
 const initCategory = [
   {
     name: "CategoriaA",
-    imgURL: "Imagen Cateogria 1 Test"
+    imgURL: "Imagen Categoria 1 Test"
   },
   {
     name: "CategoriaB",
-    imgURL: "Imagen Cateogria 2 Test"
+    imgURL: "Imagen Categoria 2 Test"
   }
 ]
 
