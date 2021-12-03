@@ -49,7 +49,20 @@ beforeEach(async () => {
   tokenAdmin = response.body.token
 })
 
-
+//Delete
+test("Delete first Product", async () => {
+  const response =  await api.get('/product');
+  const deleteProductId = response.body[0].id
+  
+  await api
+    .delete(`/product/${deleteProductId}`)
+    .set('x-access-token', tokenAdmin)
+    .expect(200)
+    .expect('Content-Type', /application\/json/);
+  
+  const response_ =  await api.get('/product');
+  expect(response_.body).toHaveLength(initProduct.length - 1)  
+})
 
 //Put
 test("Update first Product", async () => {
