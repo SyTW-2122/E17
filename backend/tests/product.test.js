@@ -11,7 +11,7 @@ let tokenAdmin
 
 const initProduct = [
   {
-    "category": "CategoryA",
+    "category": "CATEGORYA",
     "name": "Name Product1",
     "price": 15,
     "imgURL": "Imagen del Producto1",
@@ -19,7 +19,7 @@ const initProduct = [
     "espec": ["Espec0", "Espec1"]
   },
   {
-    "category": "CategoryB",
+    "category": "CATEGORYA",
     "name": "Name Product2",
     "price": 125,
     "imgURL": "Imagen del Producto2",
@@ -47,6 +47,71 @@ beforeEach(async () => {
     .send(userData)
 
   tokenAdmin = response.body.token
+})
+
+// Gets
+test("Product returned as JSON", async () => {
+  await api
+    .get('/product')
+    .expect(200)
+    .expect('Content-Type', /application\/json/)
+})
+
+test('There is one Product', async () => {
+  const response =  await api.get('/product');
+  expect(response.body).toHaveLength(initProduct.length)  
+})
+
+test('The first Product', async () => {
+  const response =  await api.get('/product');
+  const names = response.body.map(product => product.name)
+  expect(names).toContain(initProduct[0].name)  
+})
+
+// Get/Id
+test("Get Product by ID", async () => {
+  const response_ = await api.get("/product")
+  const getProductById = response_.body[0].id
+  const response = await api
+    .get(`/product/${getProductById}`)
+    .expect(200)
+    .expect('Content-Type', /application\/json/)
+  expect(response.body.name).toBe( response_.body[0].name)
+})
+
+// Get/Category
+test("Get Product by Category", async () => {
+  const response_ = await api.get("/product")
+  const getProductByCategory = response_.body[0].category
+  const response = await api
+    .get(`/product/category/${getProductByCategory}`)
+    .expect(200)
+    .expect('Content-Type', /application\/json/)
+  
+  const names = response.body.map(product => product.name)
+  expect(names).toContain(initProduct[0].name)
+})
+
+// Get/Discount/true
+test("Get Product by Category", async () => {
+  const response = await api
+    .get(`/product/discount/true`)
+    .expect(200)
+    .expect('Content-Type', /application\/json/)
+  
+  const names = response.body.map(product => product.name)
+  expect(names).toContain(initProduct[0].name)
+})
+
+// Get/Discount/false
+test("Get Product by Category", async () => {
+  const response = await api
+    .get(`/product/discount/false`)
+    .expect(200)
+    .expect('Content-Type', /application\/json/)
+  
+  const names = response.body.map(product => product.name)
+  expect(names).toContain(initProduct[1].name)
 })
 
 // Post
