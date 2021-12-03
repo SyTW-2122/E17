@@ -42,6 +42,6 @@ export const deleteCategoryById = (request, response) => {
   const {categoryId} = request.params;
   Category.findByIdAndDelete(categoryId)
   .then(() => {
-    response.status(200).json("Nota Eliminada");
+    response.status(200).json("Categoria Eliminada");
   })
 }
