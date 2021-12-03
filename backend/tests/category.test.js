@@ -96,6 +96,26 @@ test("Delete one Category", async () => {
   expect(response_.body).toHaveLength(initCategory.length -1) 
 })
 
+// Puts
+test("Update frist Category", async() => {
+  const response =  await api.get('/category');
+  const updateCategoryId = response.body[0].id
+  const newDataCategory = {
+    "name": "CategoriaUpdate"
+  }
+  await api
+    .put(`/category/${updateCategoryId}`)
+    .set('x-access-token', tokenAdmin)
+    .send(newDataCategory)
+    .expect(200)
+    .expect('Content-Type', /application\/json/);
+
+  const response_ =  await api.get('/category');
+  const names = response_.body.map(category => category.name)
+  expect(response.body).toHaveLength(initCategory.length) 
+  expect(names).toContain(newDataCategory.name)
+})
+
 afterAll(() => {
   mongoose.connection.close()
   server.close()
