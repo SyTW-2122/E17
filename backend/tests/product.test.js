@@ -49,7 +49,33 @@ beforeEach(async () => {
   tokenAdmin = response.body.token
 })
 
-//Delete
+// Post
+test("Post one Product", async () => {
+  const newProduct = {
+    "category": "CategoryC",
+    "name": "Name Product3",
+    "price": 200,
+    "imgURL": "Imagen del Producto3",
+    "discount": false,
+    "espec": ["Espec4", "Espec5"]
+  }
+
+  // Hacemos el post con la categoria
+  await api
+    .post("/product")
+    .set('x-access-token', tokenAdmin)
+    .send(newProduct)
+    .expect(201)
+    .expect('Content-Type', /application\/json/);
+  
+  // Comprobamos que la categoria se haya añadido
+  const response =  await api.get('/product');
+  const names = response.body.map(product => product.name)
+  expect(response.body).toHaveLength(initProduct.length + 1) 
+  expect(names).toContain(newProduct.name)
+})
+
+// Delete
 test("Delete first Product", async () => {
   const response =  await api.get('/product');
   const deleteProductId = response.body[0].id
@@ -64,7 +90,7 @@ test("Delete first Product", async () => {
   expect(response_.body).toHaveLength(initProduct.length - 1)  
 })
 
-//Put
+// Put
 test("Update first Product", async () => {
   const response =  await api.get('/product');
   const updateProductId = response.body[0].id
