@@ -24,7 +24,9 @@ beforeEach(async () => {
   await Category.deleteMany({})
   await new Category(initCategory[0]).save()
   await new Category(initCategory[1]).save()
-  
+})
+
+beforeAll(async () => {
   await User.deleteMany({})
   const userData = {
     "email": "admin@test.com",

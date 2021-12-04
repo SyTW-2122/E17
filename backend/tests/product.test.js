@@ -33,7 +33,9 @@ beforeEach(async () => {
 
   await new Product(initProduct[0]).save()
   await new Product(initProduct[1]).save()
+})
 
+beforeAll(async () => {
   await User.deleteMany({})
   const userData = {
     "email": "admin@test.com",
@@ -93,7 +95,7 @@ test("Get Product by Category", async () => {
 })
 
 // Get/Discount/true
-test("Get Product by Category", async () => {
+test("Get Product by Discount True", async () => {
   const response = await api
     .get(`/product/discount/true`)
     .expect(200)
@@ -104,7 +106,7 @@ test("Get Product by Category", async () => {
 })
 
 // Get/Discount/false
-test("Get Product by Category", async () => {
+test("Get Product by Discount False", async () => {
   const response = await api
     .get(`/product/discount/false`)
     .expect(200)
