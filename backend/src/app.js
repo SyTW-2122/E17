@@ -28,4 +28,9 @@ app.use('/product', productRoutes);
 import authRoutes from './routes/auth.routes'
 app.use('/auth', authRoutes);
 
+import testing  from "./routes/testing.routes";
+if (process.env.NODE_ENV === 'test') {
+  app.use('/testing', testing)
+}
+
 export default app;
