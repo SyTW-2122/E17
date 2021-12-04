@@ -14,9 +14,14 @@ const actions = {
   async getRandomProducts({commit}){
     const response = await axios.get(url);
     const length = response.data.length;
-    
+    let showProductAmount = 6;
+
+    if(length < 6) {
+      showProductAmount = length;
+    }
+
     let randomArray = [];
-    while (randomArray.length != 6) {
+    while (randomArray.length != showProductAmount) {
       let newNum = Math.floor(Math.random() * length)
       if (!randomArray.includes(newNum)) {
         randomArray.push(newNum);

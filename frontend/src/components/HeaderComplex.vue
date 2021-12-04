@@ -165,7 +165,6 @@
       margin: 0px auto;
       background-color: #d0c2d3;
       border-radius: 8px;
-      height: ;
       font-size: 35px;
       margin: 10px auto;
     }
