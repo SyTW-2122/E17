@@ -14,8 +14,8 @@
         </div>
       </div>
       <div class="leftDown">
-        <input class="gradient-a" type="button" value="Vaciar Carrito" v-on:click="VaciarCarrito"/>
-        <router-link to="/categories"><input class="gradient-b" type="button" value="Seguir Comprando"/></router-link>
+        <input class="gradient-a" type="button" style="cursor: pointer;" value="Vaciar Carrito" v-on:click="VaciarCarrito"/>
+        <router-link to="/categories"><input class="gradient-b" type="button" style="cursor: pointer;" value="Seguir Comprando"/></router-link>
       </div>
     </div>
     <div v-else class="cartEmpty">
@@ -26,7 +26,7 @@
         <span>Total</span>
         <div class="totalP">{{AllPriceInCart}} €</div>
       </div>
-      <input v-if="AllPriceInCart != 0" class="checkBuy" type="button" value="Realizar Compra" v-on:click="RealizarCompra"/>
+      <input v-if="AllPriceInCart != 0" class="checkBuy" type="button" style="cursor: pointer;" value="Realizar Compra" v-on:click="RealizarCompra"/>
     </div>
   </div>
 </template>

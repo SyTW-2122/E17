@@ -8,9 +8,9 @@
       {{arg.price}} €
     </div>
     <div class="unidades">
-      <input type="button" value="-" v-on:click="removeProductInCart(arg)"/>
+      <input type="button" style="cursor: pointer;" value="-" v-on:click="removeProductInCart(arg)"/>
       {{arg.amount}}
-      <input type="button" value="+" v-on:click="addProductInCart(arg)"/>
+      <input type="button" style="cursor: pointer;" value="+" v-on:click="addProductInCart(arg)"/>
     </div>
     <div class="productTotalPrice">
       {{arg.totalPrice}} €
