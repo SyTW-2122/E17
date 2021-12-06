@@ -1,1 +1,9 @@
-{}
+{
+  "viewportWidth": 1280,
+  "viewportHeight": 720,
+  "testFiles": [
+  "homePage.js",
+  "registerPage.js",
+  "loginPage.js"
+]
+}
