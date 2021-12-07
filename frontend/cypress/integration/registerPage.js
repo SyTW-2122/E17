@@ -1,6 +1,5 @@
 describe('Register Page', () => {
   it('Load Page', () => {
-    cy.request('POST', 'http://tecnored.xyz:4000/testing/reset')
     cy.visit('http://localhost:8080/register')
   })
 

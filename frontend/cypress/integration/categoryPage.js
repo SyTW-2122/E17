@@ -1,6 +1,10 @@
-describe('Home Page', () => {
+describe('Category Page', () => {
   it('Load Page', () => {
-    cy.visit('http://localhost:8080/')
+    cy.visit('http://localhost:8080/categories')
+  })
+
+  it('Jump Category', () => {
+    cy.get('.cateogries > :nth-child(1)').click()
   })
 
   describe('Header', () => {
@@ -18,14 +22,6 @@ describe('Home Page', () => {
   })
 
   describe('Body', () => {
-    it('Button "Todas las Catgorias"', () => {
-      cy.contains('Todas las Categorias')
-    })
-
-    it('Button "Ofertas del Dia"', () => {
-      cy.contains('Ofertas del Dia')
-    })
-
     it('Product "AMD Radeon RX 6800XT"',() => {
       cy.contains('AMD Radeon RX 6800XT')
     })
