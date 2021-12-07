@@ -6,7 +6,11 @@
     "homePage.js",
     "categoriesPage.js",
     "categoryPage.js",
+    "promoPage.js",
+    "detailsPage.js",
     "registerPage.js",
-    "loginPage.js"
+    "loginPage.js",
+    "profilePage.js",
+    "cartPage.js"
   ]
 }
