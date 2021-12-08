@@ -1,7 +1,10 @@
 import Category from '../models/category.models';
 
-export const createCategory = (request, response) => {
+export const createCategory = async (request, response) => {
   const content = request.body;
+
+  const oldCategory = await Category.findOne({"name": content.name.toUpperCase()});
+  if(oldCategory) return response.status(409).json({message: "Categoria ya existente"})
 
   const newCategory = new Category({
     name: content.name.toUpperCase(),

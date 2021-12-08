@@ -1,7 +1,10 @@
 import Product from '../models/product.models';
 
-export const createProduct = (request, response) => {
+export const createProduct = async (request, response) => {
   const content = request.body;
+
+  const oldProduct = await Product.findOne({"name": content.name});
+  if(oldProduct) return response.status(409).json({message: "Producto ya existente"})
   
   const newProduct = new Product({
     category: content.category.toUpperCase(),
