@@ -90,7 +90,7 @@ export const signIn = async (request, response) => {
 
 Con esto ya tendriamos controlado el inicio de sesion, solo faltaria los tests.
 
-# Testin de Inicio de Sesion
+# Testing de Inicio de Sesion
 
 ```js
 const mongoose = require('mongoose')
