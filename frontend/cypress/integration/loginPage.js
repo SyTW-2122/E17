@@ -1,5 +1,6 @@
 describe('Login Page', () => {
   it('Load Page', () => {
+    cy.wait(500)
     cy.visit('http://localhost:8080/login')
   })
 

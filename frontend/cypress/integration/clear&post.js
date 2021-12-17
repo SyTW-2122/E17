@@ -1,11 +1,12 @@
 describe('Start',() => {
   it('Restart DB', () => {
-    cy.request('POST', 'http://tecnored.xyz:4000/testing/reset')
+    cy.wait(500)
+    cy.request('POST', 'http://localhost:4000/testing/reset')
   })
   it('POST UserAdmin', () => {
     const adminUserOptions = {
       method:'POST', 
-      url:'http://tecnored.xyz:4000/auth/signup',
+      url:'http://localhost:4000/auth/signup',
       body: {
         "email": "admin@test.com",
         "password": "test12345",
@@ -14,6 +15,7 @@ describe('Start',() => {
         "role": "admin"
       }
     }
+    cy.wait(500)
     cy.request(adminUserOptions)
       .as('registerResponse')
       .then((response) => {
@@ -29,7 +31,7 @@ describe('Start',() => {
 
     const productOptions = {
       method: 'POST',
-      url: `http://tecnored.xyz:4000/product`,
+      url: `http://localhost:4000/product`,
       headers: {
         'x-access-token': `${ token }`
       },
@@ -47,7 +49,7 @@ describe('Start',() => {
         "discount": true
       }
     }
-
+    cy.wait(500)
     cy.request(productOptions)
       .its('status')
       .should('eq', 201);
@@ -58,7 +60,7 @@ describe('Start',() => {
 
     const productOptions = {
       method: 'POST',
-      url: `http://tecnored.xyz:4000/category`,
+      url: `http://localhost:4000/category`,
       headers: {
         'x-access-token': `${ token }`
       },
@@ -67,7 +69,7 @@ describe('Start',() => {
         "imgURL": "https://tecnored.xyz/SyTW/categories/grafica.jpg"
       }
     }
-
+    cy.wait(500)
     cy.request(productOptions)
       .its('status')
       .should('eq', 201);
