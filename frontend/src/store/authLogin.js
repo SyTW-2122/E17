@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://tecnored.xyz:4000/auth/signin"
+const url = "http://localhost:4000/auth/signin"
 
 const actions = {
   async login({ commit }, usuario) {

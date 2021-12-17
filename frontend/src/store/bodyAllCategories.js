@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://tecnored.xyz:4000/category";
+const url = "http://localhost:4000/category";
 
 const state = {
   allCategories: []

@@ -10,7 +10,7 @@ const getters = {
 
 const actions = {
   async getDetails({commit}, id){
-    const url = `http://tecnored.xyz:4000/product/${id}`;
+    const url = `http://localhost:4000/product/${id}`;
     const response = await axios.get(url);
     commit("setDetails", response.data)
   }
