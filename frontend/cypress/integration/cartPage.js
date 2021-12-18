@@ -11,8 +11,9 @@ describe('Cart Page', () => {
     it('Add Cart', () => {
       cy.login()
       cy.reload()
+      cy.wait(2000)
       cy.get('.addCart').click()
-      cy.wait(1500)
+      cy.wait(2000)
     })
   })
 

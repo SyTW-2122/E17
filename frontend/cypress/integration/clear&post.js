@@ -75,17 +75,3 @@ describe('Start',() => {
       .should('eq', 201);
   })
 })
-
-Cypress.Commands.add('login', () => { 
-  cy.request({
-    method:'POST', 
-    url:'http://localhost:4000/auth/signin',
-    body: {
-      "email": "admin@test.com",
-      "password": "test12345",
-    }
-  })
-  .then((resp) => {
-    window.localStorage.setItem('token', resp.body.token)
-  })
-})
