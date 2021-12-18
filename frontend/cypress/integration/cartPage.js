@@ -1,20 +1,18 @@
 describe('Cart Page', () => {
   it('Load Page', () => {
-    cy.wait(500)
     cy.visit('http://localhost:8080/')
   })
 
   describe('Details Page', () => {
     it('Jump Details',() => {
       cy.get('.products > :nth-child(1)').click()
-      window.localStorage.setItem('token', Cypress.env('token'))
-      cy.wait(5000)
     })
     
     it('Add Cart', () => {
+      cy.login()
+      cy.reload()
       cy.get('.addCart').click()
-      window.localStorage.setItem('token', Cypress.env('token'))
-      cy.wait(5000)
+      cy.wait(1500)
     })
   })
 
