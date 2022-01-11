@@ -30,7 +30,7 @@ describe('Promo Page', () => {
 
   describe('Footer', () => {
     it('Right', () => {
-      cy.contains('StackParts 2021')
+      cy.contains('StackParts ' + new Date().getFullYear())
     })
   })
 })
