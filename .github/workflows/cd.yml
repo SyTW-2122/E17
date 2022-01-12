@@ -78,7 +78,7 @@ jobs:
           username: ${{ secrets.USER }}
           privateKey: ${{ secrets.SSH_KEY }}
 
-  run_frontend:
+  run_frontend: 
     name: Run Frontend
     needs: [copy_frontend_to_server]
     runs-on: ubuntu-latest
