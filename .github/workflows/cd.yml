@@ -32,7 +32,7 @@ jobs:
 
   run_backend:
     name: Run Backend
-    needs: [build_copy_backend]
+    needs: [copy_backend_to_server]
     runs-on: ubuntu-latest
     steps:
       - name: Run Backend
