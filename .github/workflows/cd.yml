@@ -1,5 +1,5 @@
 name: CD
-needs: CI
+
 on: [push]
 
 jobs:
