@@ -1,6 +1,8 @@
 name: CD
 
-on: [push]
+on:
+  workflow_success:
+    workflow: CI
 
 jobs:
   copy_backend_to_server:
