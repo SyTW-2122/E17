@@ -40,9 +40,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Run Backend
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST_SERVER }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: pm2 start node --name SyTW-B -- /root/SyTW-Backend/index.js
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST_SERVER }}
+        username: ${{ secrets.USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: pm2 start node --name SyTW-B -- /root/SyTW-Backend/index.js
