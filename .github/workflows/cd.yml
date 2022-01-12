@@ -1,0 +1,48 @@
+name: CD
+
+on: [push]
+
+jobs:
+  build_copy_backend:
+  - name: Build and Copy Backend
+    needs: [test-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies y Build Backend
+        run: cd ./backend && npm install && npm run build
+      
+      - name: Clear Path
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_SERVER }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            pm2 stop SyTW-B
+            pm2 delete SyTW-B
+            rm -rf /root/SyTW-Backend/*
+
+      - name: Copy files
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: ./backend/build/.
+          remote: /root/SyTW-Backend/
+          host: ${{ secrets.HOST_SERVER }}
+          username: ${{ secrets.USER }}
+          privateKey: ${{ secrets.SSH_KEY }}
+
+  run_backend:
+  - name: Run Backend
+    needs: [build_copy_backend]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run Backend
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_SERVER }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: pm2 start node --name SyTW-B -- /root/SyTW-Backend/index.js
