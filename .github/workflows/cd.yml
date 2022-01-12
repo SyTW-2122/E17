@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build_copy_backend:
-  - name: Build and Copy Backend
+    name: Build and Copy Backend
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
