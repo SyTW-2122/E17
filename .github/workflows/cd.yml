@@ -1,11 +1,6 @@
 name: CD
 
-on:
-  workflow_run:
-    workflows:
-      - "CI"
-    types:
-      - completed
+on: [push]
 
 jobs:
   copy_backend_to_server:
@@ -79,7 +74,7 @@ jobs:
           username: ${{ secrets.USER }}
           privateKey: ${{ secrets.SSH_KEY }}
 
-  run_frontend: 
+  run_frontend:
     name: Run Frontend
     needs: [copy_frontend_to_server]
     runs-on: ubuntu-latest
