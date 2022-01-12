@@ -1,10 +1,52 @@
-name: CD
+name: CI-CD
 
 on: [push]
 
 jobs:
+  test-backend:
+    name: Test Backend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: cd ./backend && npm install
+
+      - name: Run Test
+        run: cd ./backend && npm run alltest
+
+  test-frontend:
+    name: Test Frontend
+    needs: [test-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies backend
+        run: cd ./backend && npm install
+
+      - name: Run backend
+        run: cd ./backend && npm run start:test &
+
+      - name: Install Vue
+        run: npm install -g @vue/cli
+      
+      - name: Install dependencies frontend
+        run: cd ./frontend && npm install
+      
+      - name: Run frontend
+        run: cd ./frontend && npm run serve &
+      
+      - name: Run Frontend Test
+        run: cd ./frontend && npm run cypress:console
+  
+  
+  
   copy_backend_to_server:
     name: Copy Backend
+    needs: [test-backend]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -49,6 +91,7 @@ jobs:
 
   copy_frontend_to_server:
     name: Copy Frontend
+    needs: [test-frontend]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
