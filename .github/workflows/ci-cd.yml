@@ -1,0 +1,135 @@
+name: CI-CD
+
+on: [push]
+
+jobs:
+  test-backend:
+    name: Test Backend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: cd ./backend && npm install
+
+      - name: Run Test
+        run: cd ./backend && npm run alltest
+
+  test-frontend:
+    name: Test Frontend
+    needs: [test-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies backend
+        run: cd ./backend && npm install
+
+      - name: Run backend
+        run: cd ./backend && npm run start:test &
+
+      - name: Install Vue
+        run: npm install -g @vue/cli
+      
+      - name: Install dependencies frontend
+        run: cd ./frontend && npm install
+      
+      - name: Run frontend
+        run: cd ./frontend && npm run serve &
+      
+      - name: Run Frontend Test
+        run: cd ./frontend && npm run cypress:console
+  
+  
+  
+  copy_backend_to_server:
+    name: Copy Backend
+    needs: [test-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Clear Path
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_SERVER }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            pm2 stop SyTW-B
+            pm2 delete SyTW-B
+            rm -rf /root/SyTW-Backend/*
+
+      - name: Copy files
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: ./backend/.
+          remote: /root/SyTW-Backend/
+          host: ${{ secrets.HOST_SERVER }}
+          username: ${{ secrets.USER }}
+          privateKey: ${{ secrets.SSH_KEY }}
+
+  run_backend:
+    name: Run Backend
+    needs: [copy_backend_to_server]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Backend
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_SERVER }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /root/SyTW-Backend
+            npm install
+            npm run build
+            pm2 start node --name SyTW-B -- ./build/index.js
+
+  copy_frontend_to_server:
+    name: Copy Frontend
+    needs: [test-frontend]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Clear Path
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_SERVER }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            pm2 stop SyTW-F
+            pm2 delete SyTW-F
+            rm -rf /root/SyTW-Frontend/*
+
+      - name: Copy files
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: ./frontend/.
+          remote: /root/SyTW-Frontend/
+          host: ${{ secrets.HOST_SERVER }}
+          username: ${{ secrets.USER }}
+          privateKey: ${{ secrets.SSH_KEY }}
+
+  run_frontend:
+    name: Run Frontend
+    needs: [copy_frontend_to_server]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Frontend
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_SERVER }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /root/SyTW-Frontend
+            npm install
+            export VUE_APP_APIURL=http://tecnored.xyz:4000 && npm run build
+            pm2 start serve --name SyTW-F -- -l 8080 -d ./dist

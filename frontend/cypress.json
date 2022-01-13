@@ -1,0 +1,16 @@
+{
+  "viewportWidth": 1280,
+  "viewportHeight": 720,
+  "testFiles": [
+    "clear&post.js",
+    "homePage.js",
+    "categoriesPage.js",
+    "categoryPage.js",
+    "promoPage.js",
+    "detailsPage.js",
+    "registerPage.js",
+    "loginPage.js",
+    "profilePage.js",
+    "cartPage.js"
+  ]
+}
