@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const url = "http://localhost:4000/category";
+const urlBackend = process.env.VUE_APP_APIURL || "http://localhost:4000"
+const url = urlBackend + "/category";
 
 const state = {
   allCategories: []

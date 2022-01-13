@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const url = "http://localhost:4000/product";
+const urlBackend = process.env.VUE_APP_APIURL || "http://localhost:4000"
+const url = urlBackend + "/product";
 
 const state = {
   randomProducts: []

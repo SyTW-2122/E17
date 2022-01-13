@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const url = "http://localhost:4000/auth/profile";
+const urlBackend = process.env.VUE_APP_APIURL || "http://localhost:4000"
+const url = urlBackend + "/auth/profile";
 
 const state = {
   token: null,
