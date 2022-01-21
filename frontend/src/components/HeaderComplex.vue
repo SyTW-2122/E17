@@ -73,8 +73,7 @@
         var s = Math.floor(Math.random() * 100);
         var l = Math.floor(Math.random() * 100);
         if (l <= 50) l = 60;
-        var mycolor = `hsl(${h}deg, ${s}%, ${l}%)`;
-        return mycolor;
+        return `hsl(${h}deg, ${s}%, ${l}%)`;
       },
       ...mapActions(["Logout","readToken"])
     },
@@ -162,7 +161,6 @@
     
     .profileUser {
       width: 90%;
-      margin: 0px auto;
       background-color: #d0c2d3;
       border-radius: 8px;
       font-size: 35px;

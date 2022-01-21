@@ -35,7 +35,6 @@ const actions = {
       imageHeight: 150,
       imageAlt: 'Carrito Vacio',
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         window.location.href="/"
       }
@@ -60,13 +59,11 @@ const mutations = {
     let productFindIndex = -1;
 
     if(state.ProductsInCart.length === 0) {
-      // console.log("Iniciando el vector");
       state.ProductsInCart.push(data);
     }
     else {
       state.ProductsInCart.forEach((element,index) => {
         if(element.id === data.id) {
-          // console.log("Misma ID");
           productFindIndex = index;
         }
       });
@@ -94,7 +91,6 @@ const mutations = {
         if(element.amount > 1) { 
           element.amount--;
           element.totalPrice = Math.round((element.totalPrice -= data.price)*100)/100;
-          // console.log("Tiene mas de 1");
         }
         else {
           delete state.ProductsInCart[index];

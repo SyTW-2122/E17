@@ -170,7 +170,6 @@
   /* Spearator */
     .separator {
       display: flex;
-      margin: auto;
       justify-content: center;
       color: gray;
       margin: 50px auto;
